@@ -1,4 +1,4 @@
-# intro-slider
+# image-picker
 
 ![Single select](https://raw.githubusercontent.com/VolkenoMakers/image-picker/files/demo.gif)
 
