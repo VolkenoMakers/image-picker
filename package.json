@@ -1,0 +1,42 @@
+{
+  "name": "@volkenomakers/image-picker",
+  "version": "1.0.0",
+  "description": "a react native module developped by volkeno",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VolkenoMakers/image-picker.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-native-component",
+    "image-picker",
+    "babacarMbengue12",
+    "volkeno",
+    "onboarding"
+  ],
+  "author": "volkenomakers",
+  "dependencies": {
+    "expo-image-picker": "~10.1.4"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0-beta.5",
+    "react-native": "^0.49.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@types/react-native": "^0.64.8",
+    "babel-preset-expo": "~8.1.0",
+    "metro-react-native-babel-preset": "^0.59.0"
+  },
+  "license": "ISC",
+  "contributors": [
+    "babacarMbengue12"
+  ],
+  "bugs": {
+    "url": "https://github.com/VolkenoMakers/image-picker/issues"
+  }
+}
