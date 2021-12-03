@@ -1,14 +1,16 @@
 # intro-slider
 
-![Single select](https://raw.githubusercontent.com/VolkenoMakers/intro-slider/files/demo.gif)
+![Single select](https://raw.githubusercontent.com/VolkenoMakers/image-picker/files/demo.gif)
 
 ## Add it to your project
 
 - Using NPM
-  `npm install @volkenomakers/intro-slider`
+  `npm install @volkenomakers/image-picker`
+  `expo install expo-image-picker`
 - or:
 - Using Yarn
-  `yarn add @volkenomakers/intro-slider`
+  `yarn add @volkenomakers/image-picker`
+  `expo install expo-image-picker`
 
 ## Usage
 
@@ -20,7 +22,7 @@ import {
   useImagePickerModal,
   launchCameraAsync,
   launchImageLibraryAsync,
-} from "../image-picker/index";
+} from "@volkenomakers/image-picker";
 
 const ImagePickerApp = () => {
   const [showModal, renderModal] = useImagePickerModal(
@@ -50,20 +52,3 @@ const ImagePickerApp = () => {
 
 export default ImagePickerApp;
 ```
-
-## Properties
-
-| Property name        | Type       | Description                                                 |
-| -------------------- | ---------- | ----------------------------------------------------------- |
-| **data**             | _Array_    | array of object with keys (title,descriptio, imge)          |
-| **onEnd**            | _Function_ | callback to be called when the user click to the end button |
-| **imageProps**       | _Object_   | props for the image                                         |
-| **descriptionStyle** | _Object_   | Custom style for the text description                       |
-| **titleStyle**       | _Object_   | Custom style for the title                                  |
-| **containerStyle**   | _Object_   | Custom style for the View container                         |
-| **indicatorColor**   | _String_   | color of the indicators                                     |
-| **indicatorSize**    | _Number_   | size of the indicators                                      |
-| **renderNextButton** | _Function_ | render the next button                                      |
-| **renderEndButton**  | _String_   | render the end button                                       |
-
-**ISC Licensed**
