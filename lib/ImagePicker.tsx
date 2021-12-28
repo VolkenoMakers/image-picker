@@ -33,25 +33,25 @@ export const useImagePickerModal = (
   const renderModal = React.useCallback(() => {
     const onPick = (isCamera: boolean) => {
       setShow(false);
-      if (isCamera) {
-        launchCameraAsync(
-          options.imagePickerOptions,
-          options.unGrantedCameraPermissionMessage
-        ).then((res) => {
-          if (null === res) return;
-          cb(res);
-          setShow(false);
-        });
-      } else {
-        launchImageLibraryAsync(
-          options.imagePickerOptions,
-          options.unGrantedMediaPermissionMessage
-        ).then((res) => {
-          if (null === res) return;
-          cb(res);
-          setShow(false);
-        });
-      }
+      setTimeout(() => {
+        if (isCamera) {
+          launchCameraAsync(
+            options.imagePickerOptions,
+            options.unGrantedCameraPermissionMessage
+          ).then((res) => {
+            if (null === res) return;
+            cb(res);
+          });
+        } else {
+          launchImageLibraryAsync(
+            options.imagePickerOptions,
+            options.unGrantedMediaPermissionMessage
+          ).then((res) => {
+            if (null === res) return;
+            cb(res);
+          });
+        }
+      }, 400);
     };
     return (
       <>
