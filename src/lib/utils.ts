@@ -1,11 +1,11 @@
 import { Alert } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
-export function showMessage(message) {
+export function showMessage(message: string) {
   Alert.alert("", message);
 }
 
-export async function getCameraPermissionAsync(message) {
+export async function getCameraPermissionAsync(message?: string) {
   const { granted } = await ImagePicker.getCameraPermissionsAsync();
   if (!granted) {
     const { granted: g2 } = await ImagePicker.requestCameraPermissionsAsync();
@@ -20,7 +20,7 @@ export async function getCameraPermissionAsync(message) {
   return true;
 }
 
-export async function getMediaPermissionAsync(message) {
+export async function getMediaPermissionAsync(message?:string) {
   const { granted } = await ImagePicker.getMediaLibraryPermissionsAsync();
   if (!granted) {
     const { granted: g2 } =

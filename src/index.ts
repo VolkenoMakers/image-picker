@@ -1,7 +1,7 @@
 import { useImagePickerModal as uipm } from "./lib/ImagePicker";
 import {
-  launchImageLibraryAsync as lil,
   launchCameraAsync as lc,
+  launchImageLibraryAsync as lil,
 } from "./lib/utils";
 
 export const useImagePickerModal = uipm;
