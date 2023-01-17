@@ -6,11 +6,13 @@
 
 - Using NPM
   `npm install @volkenomakers/image-picker`
-  `expo install expo-image-picker`
-- or:
+
 - Using Yarn
   `yarn add @volkenomakers/image-picker`
-  `expo install expo-image-picker`
+
+## add expo-image-picker
+
+`expo install expo-image-picker`
 
 ## Usage
 
@@ -28,7 +30,7 @@ const ImagePickerApp = () => {
   const [showModal, renderModal] = useImagePickerModal(
     (result) => {
       if (result) {
-        console.log(result.uri);
+        console.log(result);
       }
     },
     {

@@ -1,5 +1,5 @@
-import { Alert } from "react-native";
 import * as ImagePicker from "expo-image-picker";
+import { Alert } from "react-native";
 
 export function showMessage(message: string) {
   Alert.alert("", message);
@@ -12,7 +12,7 @@ export async function getCameraPermissionAsync(message?: string) {
     if (!g2) {
       showMessage(
         message ||
-          "les autorisations de camera ont été refusées, veuillez vérifier les paramètres de l'application"
+          "Les autorisations de camera ont été refusées, veuillez vérifier les paramètres de l'application"
       );
       return false;
     }
@@ -20,7 +20,7 @@ export async function getCameraPermissionAsync(message?: string) {
   return true;
 }
 
-export async function getMediaPermissionAsync(message?:string) {
+export async function getMediaPermissionAsync(message?: string) {
   const { granted } = await ImagePicker.getMediaLibraryPermissionsAsync();
   if (!granted) {
     const { granted: g2 } =
@@ -28,7 +28,7 @@ export async function getMediaPermissionAsync(message?:string) {
     if (!g2) {
       showMessage(
         message ||
-          "les autorisations de media ont été refusées, veuillez vérifier les paramètres de l'application"
+          "Les autorisations de media ont été refusées, veuillez vérifier les paramètres de l'application"
       );
       return false;
     }
@@ -50,7 +50,7 @@ export async function launchImageLibraryAsync(
     quality: 1,
     ...options,
   });
-  if (result.cancelled) return null;
+  if (result.canceled) return null;
   return result;
 }
 export async function launchCameraAsync(
@@ -68,7 +68,7 @@ export async function launchCameraAsync(
     ...options,
   });
 
-  if (result.cancelled) return null;
+  if (result.canceled) return null;
 
   return result;
 }

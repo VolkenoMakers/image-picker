@@ -1,15 +1,11 @@
 import {
-  ImagePickerResult,
-  ImagePickerMultipleResult,
-  ImageInfo,
   ImagePickerOptions,
+  ImagePickerSuccessResult,
 } from "expo-image-picker/build/ImagePicker.types";
 import * as React from "react";
-import { View, Text, Image } from "react-native";
-import { TextStyle } from "react-native";
+import { Image, Text, TextStyle, View } from "react-native";
 
-import { TouchableWithoutFeedback } from "react-native";
-import { Modal } from "react-native";
+import { Modal, TouchableWithoutFeedback } from "react-native";
 import { launchCameraAsync, launchImageLibraryAsync } from "./utils";
 
 type ImagePickerModalOptions = {
@@ -24,9 +20,7 @@ type ImagePickerModalOptions = {
   unGrantedMediaPermissionMessage?: string;
 };
 export const useImagePickerModal = (
-  cb: (
-    result: ImagePickerResult | null | ImagePickerMultipleResult | ImageInfo
-  ) => any,
+  cb: (result: ImagePickerSuccessResult) => void,
   options: ImagePickerModalOptions = {}
 ) => {
   const [show, setShow] = React.useState(false);
@@ -39,16 +33,14 @@ export const useImagePickerModal = (
             options.imagePickerOptions,
             options.unGrantedCameraPermissionMessage
           ).then((res) => {
-            if (null === res) return;
-            cb(res);
+            if (res) cb(res);
           });
         } else {
           launchImageLibraryAsync(
             options.imagePickerOptions,
             options.unGrantedMediaPermissionMessage
           ).then((res) => {
-            if (null === res) return;
-            cb(res);
+            if (res) cb(res);
           });
         }
       }, 400);
@@ -67,7 +59,7 @@ export const useImagePickerModal = (
   const showModal = React.useCallback((flag: boolean) => {
     setShow(flag);
   }, []);
-  return [showModal, renderModal];
+  return [showModal, renderModal] as [(flag: boolean) => void, () => any];
 };
 type ModalProps = {
   visible: boolean;
