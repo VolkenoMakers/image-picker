@@ -5,7 +5,7 @@ import {
 import * as React from "react";
 import { Image, Text, TextStyle, View } from "react-native";
 
-import { Modal, TouchableWithoutFeedback } from "react-native";
+import { Modal, TouchableOpacity } from "react-native";
 import { launchCameraAsync, launchImageLibraryAsync } from "./utils";
 
 type ImagePickerModalOptions = {
@@ -87,12 +87,12 @@ const PickModal = ({ visible, onHide, onPick, options }: ModalProps) => {
           }}
         >
           <View style={{ alignSelf: "flex-end", marginBottom: 15 }}>
-            <TouchableWithoutFeedback onPress={() => onHide()}>
+            <TouchableOpacity onPress={() => onHide()}>
               <Image
                 source={require("../assets/clear.png")}
                 style={{ width: 34, height: 34, tintColor: "#F00" }}
               />
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
           </View>
           <View
             style={{
@@ -114,14 +114,14 @@ const PickModal = ({ visible, onHide, onPick, options }: ModalProps) => {
               >
                 {options.useCameraText || "Prendre une photo"}
               </Text>
-              <TouchableWithoutFeedback onPress={() => onPick(true)}>
+              <TouchableOpacity onPress={() => onPick(true)}>
                 {options.useCameraIcon || (
                   <Image
                     source={require("../assets/camera.png")}
                     style={{ width: 34, height: 34, tintColor: "#000" }}
                   />
                 )}
-              </TouchableWithoutFeedback>
+              </TouchableOpacity>
             </View>
             <View
               style={{ marginHorizontal: 5, flex: 1, alignItems: "center" }}
@@ -138,14 +138,14 @@ const PickModal = ({ visible, onHide, onPick, options }: ModalProps) => {
               >
                 {options.joinImageText || "Charger une image"}
               </Text>
-              <TouchableWithoutFeedback onPress={() => onPick(false)}>
+              <TouchableOpacity onPress={() => onPick(false)}>
                 {options.joinImageIcon || (
                   <Image
                     source={require("../assets/img.png")}
                     style={{ width: 34, height: 34 }}
                   />
                 )}
-              </TouchableWithoutFeedback>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
